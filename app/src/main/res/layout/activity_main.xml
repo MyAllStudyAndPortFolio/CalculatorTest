@@ -15,6 +15,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_weight="1" />
+    <TextView
+        android:id="@+id/expressionTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="end"
+        android:textSize="33dp"
+        android:text="2222*222222222222222222"
+        android:textColor="@color/black"
+        android:layout_marginEnd="12dp"
+        />
+    <TextView
+        android:id="@+id/resultTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="end"
+        android:textSize="27dp"
+        android:textColor="#aaaaaa"
+        android:text="123123"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/keypadTableLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
 
     <TableLayout
         android:id="@+id/keypadTableLayout"
@@ -243,7 +272,7 @@
 
         <TableRow android:layout_weight="1">
 
-            <androidx.appcompat.widget.AppCompatButton
+            <ImageButton
                 android:id="@+id/historyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -252,7 +281,7 @@
                 android:background="@drawable/button_background"
                 android:stateListAnimator="@null"
                 android:textColor="@color/textColor"
-                android:text="7"
+                android:src="@drawable/ic_baseline_access_time_24"
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -281,15 +310,16 @@
                 android:clickable="false"
                 android:textSize="25dp" />
 
-            <ImageButton
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/resultButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_green"
                 android:onClick="resultButtonClicked"
                 android:stateListAnimator="@null"
                 android:text="="
-                android:textColor="@color/green"
+                android:textColor="@color/white"
                 android:src=""
                 android:textSize="25dp" />
 
