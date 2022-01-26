@@ -63,7 +63,7 @@
         <TableRow android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/clearButton"
+                android:id="@+id/buttonClear"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -87,6 +87,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonModulo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -98,13 +99,14 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonDivider"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:background="@drawable/button_background"
                 android:onClick="buttonClicked"
                 android:stateListAnimator="@null"
-                android:text="+"
+                android:text="/"
                 android:textColor="@color/green"
                 android:textSize="25dp" />
 
@@ -115,7 +117,7 @@
         <TableRow android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
-
+                android:id="@+id/button7"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -127,7 +129,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-
+                android:id="@+id/button8"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -139,17 +141,19 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button9"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:onClick="buttonClicked"
                 android:background="@drawable/button_background"
+                android:onClick="buttonClicked"
                 android:stateListAnimator="@null"
-                android:textColor="@color/textColor"
                 android:text="9"
+                android:textColor="@color/textColor"
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonMulti"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -168,7 +172,7 @@
         <TableRow android:layout_weight="1">
 
             <androidx.appcompat.widget.AppCompatButton
-
+                android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -180,7 +184,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-
+                android:id="@+id/button5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -192,6 +196,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button6"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -203,6 +208,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonMinus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -225,7 +231,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
                 android:layout_onClick="buttonClicked"
-
+                android:id="@+id/button1"
                 android:background="@drawable/button_background"
                 android:stateListAnimator="@null"
                 android:textColor="@color/textColor"
@@ -233,7 +239,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -245,6 +251,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -256,6 +263,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonPlus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -285,7 +293,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-
+                android:id="@+id/button0"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -297,6 +305,7 @@
                 android:textSize="25dp" />
             <!--추후 구현 해야한다 -->
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttonDot"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -311,7 +320,7 @@
                 android:textSize="25dp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/resultButton"
+                android:id="@+id/buttonResult"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
