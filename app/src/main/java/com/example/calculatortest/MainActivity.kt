@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             R.id.button9 -> numberButtonClicked("9")
             R.id.buttonPlus -> operatorButtonClicked("+")
             R.id.buttonMinus -> operatorButtonClicked("-")
-            R.id.buttonMulti -> operatorButtonClicked("*")
+            R.id.buttonMulti -> operatorButtonClicked("x")
             R.id.buttonDivider -> operatorButtonClicked("/")
             R.id.buttonModulo -> operatorButtonClicked("%")
         }
@@ -113,6 +113,30 @@ class MainActivity : AppCompatActivity() {
 
     fun resultButtonClicked(v : View){
 
+        val expressionTexts = expressionTextView.text.split(" ")
+
+        if(expressionTextView.text.isEmpty() || expressionTexts.size ==1 ){
+            return
+        }
+
+        if(expressionTexts.size != 3 && hasOperator){
+
+            Toast.makeText(this,"아직 완성되지 않은 수식 입니다",Toast.LENGTH_SHORT).show()
+            return
+        }
+        if (expressionTexts[0].isNumber().not() || expressionTexts[2].isNumber().not()){
+            Toast.makeText(this,"오류가 발생하였습니다",Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val expressionText = expressionTextView.text.toString()
+        val resultText = calculateExpression()
+
+        resultTextView.text = ""
+        expressionTextView.text = resultText
+        isOperator = false
+        hasOperator = false
+
     }
 
     private fun calculateExpression(): String {
@@ -146,7 +170,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clearButtonClicked(v : View){
-
+        expressionTextView.text=""
+        resultTextView.text = ""
+        isOperator = false
+        hasOperator = false
     }
 
     fun String.isNumber() : Boolean {
