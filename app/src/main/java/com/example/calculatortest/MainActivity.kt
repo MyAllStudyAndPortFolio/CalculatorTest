@@ -10,10 +10,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import androidx.room.Room
+import com.example.calculatortest.model.History
 import java.lang.NumberFormatException
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var database: AppDatabase
     private val expressionTextView: TextView by lazy {
         findViewById<TextView>(R.id.expressionTextView)
     }
@@ -38,6 +41,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        database = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "historyDataBase",
+        ).build()
     }
 
     fun buttonClicked(v: View) {
@@ -140,11 +149,17 @@ class MainActivity : AppCompatActivity() {
 
         val expressionText = expressionTextView.text.toString()
         val resultText = calculateExpression()
-
+        // 먼저 저장 하고 
+        Thread(Runnable{
+            database.historyDao().insertAll(History(null,expressionText,resultText))
+        }).start()
+        // 원위치 시키기
         resultTextView.text = ""
         expressionTextView.text = resultText
         isOperator = false
         hasOperator = false
+
+
 
     }
 
