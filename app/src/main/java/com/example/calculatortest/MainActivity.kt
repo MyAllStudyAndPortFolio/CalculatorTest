@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import java.lang.NumberFormatException
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +20,14 @@ class MainActivity : AppCompatActivity() {
 
     private val resultTextView: TextView by lazy {
         findViewById<TextView>(R.id.resultTextView)
+    }
+
+    private val historyLayout: View by lazy {
+        findViewById<View>(R.id.historyLayout)
+    }
+
+    private val historyLinearLayout: View by lazy{
+        findViewById<View>(R.id.historyLinearLayout)
     }
 
 
@@ -166,7 +175,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun historyButtonClicked(v : View){
+        historyLayout.isVisible=true
 
+        //todo 디비에서 모든 기록 가져오기, 뷰에 모든 기록 할당
+    }
+    fun historyClearButtonClicked(v : View){
+        //TODO 모든 기록 삭제, 뷰에서 모든 기록 삭제
+    }
+
+    fun closeHistoryButtonClicked(v: View){
+        historyLayout.isVisible=false
     }
 
     fun clearButtonClicked(v : View){
