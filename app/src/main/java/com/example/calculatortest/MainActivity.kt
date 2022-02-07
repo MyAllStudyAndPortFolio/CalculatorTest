@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.ForegroundColorSpan
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -29,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.historyLayout)
     }
 
-    private val historyLinearLayout: View by lazy{
-        findViewById<View>(R.id.historyLinearLayout)
+    private val historyLinearLayout: LinearLayout by lazy{
+        findViewById<LinearLayout>(R.id.historyLinearLayout)
     }
 
 
@@ -192,9 +194,31 @@ class MainActivity : AppCompatActivity() {
     fun historyButtonClicked(v : View){
         historyLayout.isVisible=true
 
+        historyLinearLayout.removeAllViews()
+
+        Thread(Runnable {
+            database.historyDao().getAll().reversed().forEach {
+
+                runOnUiThread {
+                    val historyView = LayoutInflater.from(this).inflate(R.layout.history_row, null,false)
+                    historyView.findViewById<TextView>(R.id.expressionTextView).text = it.expression
+                    historyView.findViewById<TextView>(R.id.resultTextView).text = "=${it.gitresult}"
+
+                    historyLinearLayout.addView(historyView)
+                }
+
+            }
+        }).start()
+
         //todo 디비에서 모든 기록 가져오기, 뷰에 모든 기록 할당
     }
     fun historyClearButtonClicked(v : View){
+        historyLinearLayout.removeAllViews()
+
+        Thread(Runnable {
+            database.historyDao().deleteAll()
+
+        }).start()
         //TODO 모든 기록 삭제, 뷰에서 모든 기록 삭제
     }
 
