@@ -202,7 +202,7 @@ class MainActivity : AppCompatActivity() {
                 runOnUiThread {
                     val historyView = LayoutInflater.from(this).inflate(R.layout.history_row, null,false)
                     historyView.findViewById<TextView>(R.id.expressionTextView).text = it.expression
-                    historyView.findViewById<TextView>(R.id.resultTextView).text = "=${it.gitresult}"
+                    historyView.findViewById<TextView>(R.id.resultTextView).text = "=${it.result}"
 
                     historyLinearLayout.addView(historyView)
                 }
